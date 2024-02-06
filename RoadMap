@@ -10,11 +10,72 @@ This project aims to develop a deep learning model for the segmentation and clas
 4. Model Training
 5. Evaluation and Optimization
 
-## Tools and Technologies
+## Python Tools and Libraries
 - PyTorch
-- Python
+- SciPy
 - NumPy
 - Jupyter Notebooks
+
+For Learning purpose:
+Below is a simplified example of a PyTorch project for medical image analysis. 
+This example involves loading a sample image, applying a basic transformation, and passing it through a simple neural network.
+-------------------------
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torchvision import transforms
+from PIL import Image
+
+# Define a simple neural network
+class SimpleModel(nn.Module):
+    def __init__(self):
+        super(SimpleModel, self).__init__()
+        self.fc = nn.Linear(256 * 256 * 3, 2)  # Input image size is 256x256 with 3 channels
+
+    def forward(self, x):
+        x = x.view(x.size(0), -1)  # Flatten the input
+        x = self.fc(x)
+        return x
+
+# Load a sample image (replace 'path/to/sample/image.jpg' with the actual path)
+image_path = 'path/to/sample/image.jpg'
+image = Image.open(image_path)
+
+# Define a simple transformation
+transform = transforms.Compose([
+    transforms.Resize((256, 256)),
+    transforms.ToTensor(),
+])
+
+# Apply the transformation to the image
+input_tensor = transform(image).unsqueeze(0)  # Add batch dimension
+
+# Initialize the model
+model = SimpleModel()
+
+# Define loss function and optimizer
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.SGD(model.parameters(), lr=0.001)
+
+# Forward pass
+output = model(input_tensor)
+
+# Dummy label (replace 0 with the actual label)
+target = torch.tensor([0])
+
+# Compute the loss
+loss = criterion(output, target)
+
+# Backward pass and optimization
+optimizer.zero_grad()
+loss.backward()
+optimizer.step()
+
+# Print the final output and loss
+print("Model Output:", output)
+print("Loss:", loss.item())
+-----------------------------------------
+
 
 ## Project Structure
 - /data
