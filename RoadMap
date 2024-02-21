@@ -20,6 +20,7 @@ This project aims to develop a deep learning model for the segmentation and clas
 - PyTorch
 - SciPy
 - NumPy
+- Pandas
 - Jupyter Notebooks
 
 For Learning purpose:
