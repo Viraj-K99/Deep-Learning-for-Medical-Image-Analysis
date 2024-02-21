@@ -3,6 +3,12 @@
 ## Project Overview
 This project aims to develop a deep learning model for the segmentation and classification of anatomical structures in medical images, enhancing precision in diagnostic imaging.
 
+## Resources and References
+- https://pytorch.org/docs/stable/index.html
+- https://www.nvidia.com/en-us/glossary/data-science/pytorch/
+- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5479722/
+- https://www.hindawi.com/journals/cmmm/2023/7091301/
+
 ## Methodology
 1. Data Collection
 2. Data Preprocessing
@@ -91,8 +97,4 @@ print("Loss:", loss.item())
 - Limited availability of labeled medical image datasets
 - ...
 
-## Resources and References
-- https://pytorch.org/docs/stable/index.html
-- https://www.nvidia.com/en-us/glossary/data-science/pytorch/
-- https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5479722/
--
+
